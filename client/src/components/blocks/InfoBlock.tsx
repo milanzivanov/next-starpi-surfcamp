@@ -15,6 +15,7 @@ export function InfoBlock({
   return (
     <section className={`info info--${theme} ${reversed && "info--reversed"}`}>
       <StrapiImage
+        loading="eager"
         src={image.url}
         alt={image.alternativeText || "No alternative text provided"}
         height={500}
@@ -30,7 +31,11 @@ export function InfoBlock({
         </div>
 
         {cta && (
-          <Link href={cta.href} target={cta.isExternal ? "_blank" : "_self"}>
+          <Link
+            href={cta.href}
+            target={cta.isExternal ? "_blank" : "_self"}
+            className={cta.isExternal ? "info__cta_blank" : "info__cta_self"}
+          >
             <button className={`btn btn--medium btn--${theme}`}>
               {cta.text}
             </button>

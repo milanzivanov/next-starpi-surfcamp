@@ -1,3 +1,4 @@
+import { BlockRenderer } from "@/components/BlockRenderer";
 import { HeroSection } from "@/components/blocks/HeroSection";
 import { InfoBlock } from "@/components/blocks/InfoBlock";
 import { getHomePage } from "@/data/loaders";
@@ -10,7 +11,7 @@ async function loader() {
     notFound();
   }
 
-  console.log("////////// data", data);
+  // console.log("////////// data", data);
   return { ...data.data };
 }
 
@@ -21,9 +22,7 @@ export default async function HomeRoute() {
 
   return (
     <div>
-      <HeroSection {...blocks[0]} />
-      <InfoBlock {...blocks[1]} />
-      <InfoBlock {...blocks[2]} />
+      <BlockRenderer blocks={blocks} />
     </div>
   );
 }

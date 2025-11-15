@@ -17,7 +17,7 @@ export function StrapiImage({
   const imageUrl = getStrapiMedia(src);
   if (!imageUrl) return null;
 
-  console.log("/////// imageUrl", imageUrl);
+  // console.log("/////// imageUrl", imageUrl);
 
   return (
     <Image
@@ -31,10 +31,10 @@ export function StrapiImage({
 }
 
 export function getStrapiMedia(url: string | null) {
-  // const strapiURL = getStrapiURL();
+  const strapiURL = getStrapiURL();
   if (url == null) return null;
   if (url.startsWith("data:")) return url;
   if (url.startsWith("http") || url.startsWith("//")) return url;
-  // return `${strapiURL}${url}`;
-  return getStrapiURL() + url;
+  return `${strapiURL}${url}`;
+  // return getStrapiURL() + url;
 }

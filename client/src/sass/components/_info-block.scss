@@ -46,6 +46,9 @@
   }
 }
 
-.info__text_blank {
-  background-color: aqua;
+.info__cta_blank {
+  display: none;
+}
+.info__cta_self {
+  display: flex;
 }
