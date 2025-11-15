@@ -1,23 +1,29 @@
-async function loader() {
-  const path = "/api/home-page";
-  const BASE_URL = "http://localhost:1337";
-  const url = new URL(path, BASE_URL);
+import { HeroSection } from "@/components/blocks/HeroSection";
+import { InfoBlock } from "@/components/blocks/InfoBlock";
+import { getHomePage } from "@/data/loaders";
+import { notFound } from "next/navigation";
 
-  const response = await fetch(url.href);
-  const data = await response.json();
+async function loader() {
+  const data = await getHomePage();
+
+  if (!data) {
+    notFound();
+  }
+
+  console.log("////////// data", data);
   return { ...data.data };
 }
 
 export default async function HomeRoute() {
   const data = await loader();
-  const { title, description } = data;
-
-  // console.log("////////// data", data);
+  const blocks = data?.blocks || [];
+  console.log("////////// data", data);
 
   return (
     <div>
-      <h1>{title}</h1>
-      <p>{description}</p>
+      <HeroSection {...blocks[0]} />
+      <InfoBlock {...blocks[1]} />
+      <InfoBlock {...blocks[2]} />
     </div>
   );
 }

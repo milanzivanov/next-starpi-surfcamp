@@ -28,7 +28,7 @@
     "theme": {
       "type": "enumeration",
       "enum": [
-        "blue",
+        "turquoise",
         "orange"
       ]
     }
