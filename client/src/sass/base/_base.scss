@@ -1,3 +1,6 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+
 *,
 *::after,
 *::before {
@@ -6,7 +9,6 @@
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
 }
-
 
 body {
   background-color: $light-beige;

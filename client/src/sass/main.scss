@@ -1,24 +1,24 @@
-@import "base/mixins";
-@import "base/variables";
-@import "base/typography";
-@import "base/base";
+@use "./base/mixins" as *;
+@use "./base/variables" as *;
+@use "./base/typography" as *;
+@use "./base/base" as *;
 
-@import "components/header";
-@import "components/button";
-@import "components/footer";
-@import "components/hero-section";
-@import "components/info-block";
-@import "components/input";
-@import "components/content-items";
-@import "components/blog-preview";
-@import "components/pagination";
+@use "./components/header" as *;
+@use "./components/button" as *;
+@use "./components/footer" as *;
+@use "./components/hero-section" as *;
+@use "./components/info-block" as *;
+@use "./components/input" as *;
+@use "./components/content-items" as *;
+@use "./components/blog-preview" as *;
+@use "./components/pagination" as *;
 
-@import "components/blog/featured-article";
-@import "components/blog/newsletter";
-@import "components/blog/article-intro";
-@import "components/blog/article-overview";
-@import "components/blog/article-components";
-@import "components/search";
+@use "./components/blog/featured-article" as *;
+@use "./components/blog/newsletter" as *;
+@use "./components/blog/article-intro" as *;
+@use "./components/blog/article-overview" as *;
+@use "./components/blog/article-components" as *;
+@use "./components/search" as *;
 
-@import "components/events/signup-form.scss";
-@import "pages/blog";
+@use "./components/events/signup-form.scss" as *;
+@use "./pages/blog" as *;

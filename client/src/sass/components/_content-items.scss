@@ -1,6 +1,7 @@
+@use "../base/variables" as *;
+
 .content-items {
   margin-bottom: 12rem;
-
 
   &__container {
     display: grid;
@@ -15,7 +16,6 @@
       }
     }
   }
-
 
   &__headline {
     margin-bottom: 6rem;
