@@ -78,6 +78,17 @@ const pageBySlugQuery = (slug: string) =>
               },
               cta: true
             }
+          },
+          "blocks.featured-article": {
+            populate: {
+              image: {
+                fields: ["url", "alternativeText"]
+              },
+              link: true
+            }
+          },
+          "blocks.subscribe": {
+            populate: true
           }
         }
       }
@@ -90,7 +101,14 @@ export async function getPageBySlug(slug: string) {
 
   const url = new URL(path, BASE_URL);
   url.search = pageBySlugQuery(slug);
-  return await fetchAPI(url.href, { method: "GET" });
+
+  console.log("Fetching page from URL:", url.href);
+
+  const response = await fetchAPI(url.href, { method: "GET" });
+
+  console.log("Strapi response:", JSON.stringify(response, null, 2));
+
+  return response;
 }
 
 const globalSettingQuery = qs.stringify({
