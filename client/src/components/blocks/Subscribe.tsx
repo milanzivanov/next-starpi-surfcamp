@@ -1,5 +1,6 @@
 "use client";
 import type { SubscribeProps } from "@/types";
+import { subscribeAction } from "@/data/actions";
 
 export function Subscribe({
   headline,
@@ -13,7 +14,7 @@ export function Subscribe({
         <h4>{headline}</h4>
         <p className="copy">{content}</p>
       </div>
-      <form className="newsletter__form">
+      <form className="newsletter__form" action={subscribeAction}>
         <input
           name="email"
           type="email"
