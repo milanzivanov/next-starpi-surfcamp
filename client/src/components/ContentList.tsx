@@ -12,6 +12,7 @@ interface ContentListProps {
 
 async function loader(path: string, featured?: boolean) {
   const { data, meta } = await getContent(path, featured);
+  // console.log("Content list", data);
   return {
     articles: (data as ArticleProps[]) || []
   };
