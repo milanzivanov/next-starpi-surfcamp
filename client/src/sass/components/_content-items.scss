@@ -56,8 +56,12 @@
 
     & h5 {
       margin-bottom: 1rem;
-    }
 
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
+    }
     & p {
       margin-bottom: 1rem;
       font-size: 1.6rem;

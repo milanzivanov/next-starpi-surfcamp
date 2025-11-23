@@ -38,7 +38,6 @@ export async function subscribeAction(prevState: any, formData: FormData) {
   }
 
   if (responseData.error) {
-    console.log(responseData.error, "from action");
     return {
       ...prevState,
       strapiErrors: responseData.error,

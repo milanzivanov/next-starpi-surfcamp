@@ -102,11 +102,11 @@ export async function getPageBySlug(slug: string) {
   const url = new URL(path, BASE_URL);
   url.search = pageBySlugQuery(slug);
 
-  console.log("Fetching page from URL:", url.href);
+  // console.log("Fetching page from URL:", url.href);
 
   const response = await fetchAPI(url.href, { method: "GET" });
 
-  console.log("Strapi response:", JSON.stringify(response, null, 2));
+  // console.log("Strapi response:", JSON.stringify(response, null, 2));
 
   return response;
 }
@@ -148,5 +148,28 @@ export function getGlobalSettings() {
 
   const url = new URL(path, BASE_URL);
   url.search = globalSettingQuery;
+  return fetchAPI(url.href, { method: "GET" });
+}
+
+export async function getContent(path: string, featured?: boolean) {
+  const BASE_URL = getStrapiURL();
+  const url = new URL(path, BASE_URL);
+
+  url.search = qs.stringify({
+    sort: ["createdAt:desc"],
+    filters: {
+      ...(featured && {
+        featured: {
+          $eq: featured
+        }
+      })
+    },
+    populate: {
+      image: {
+        fields: ["url", "alternativeText"]
+      }
+    }
+  });
+
   return fetchAPI(url.href, { method: "GET" });
 }
