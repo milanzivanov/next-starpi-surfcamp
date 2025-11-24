@@ -14,7 +14,12 @@ async function loader() {
   return { ...data.data };
 }
 
-export default async function HomeRoute() {
+interface PageProps {
+  searchParams: Promise<{ page?: string; query?: string }>;
+}
+
+export default async function HomeRoute({ searchParams }: PageProps) {
+  const { query } = await searchParams;
   const data = await loader();
   const blocks = data?.blocks || [];
 
@@ -27,6 +32,8 @@ export default async function HomeRoute() {
           path="/api/articles"
           component={BlogCard}
           featured
+          showSearch
+          query={query}
         />
       </div>
     </div>

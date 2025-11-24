@@ -151,13 +151,29 @@ export function getGlobalSettings() {
   return fetchAPI(url.href, { method: "GET" });
 }
 
-export async function getContent(path: string, featured?: boolean) {
+export async function getContent(
+  path: string,
+  featured?: boolean,
+  query?: string
+) {
   const BASE_URL = getStrapiURL();
   const url = new URL(path, BASE_URL);
 
   url.search = qs.stringify({
     sort: ["createdAt:desc"],
     filters: {
+      $or: [
+        {
+          title: {
+            $contains: query
+          }
+        },
+        {
+          description: {
+            $contains: query
+          }
+        }
+      ],
       ...(featured && {
         featured: {
           $eq: featured
