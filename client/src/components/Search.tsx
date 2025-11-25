@@ -9,6 +9,10 @@ export function Search() {
   const { replace } = useRouter();
   const pathname = usePathname();
 
+  // console.log("searchParams", searchParams);
+  // console.log("pathname", pathname);
+  // console.log("replace", replace);
+
   // Create a debounced search handler that only triggers 300ms after the user stops typing
   const handleSearch = useDebouncedCallback((term: string) => {
     // Create a new URLSearchParams instance with current params
