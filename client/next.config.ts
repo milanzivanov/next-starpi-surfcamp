@@ -10,6 +10,10 @@ const nextConfig: NextConfig = {
         hostname: "localhost",
         port: "1337",
         pathname: "/uploads/**"
+      },
+      {
+        protocol: "https",
+        hostname: "beneficial-festival-b6882c765c.strapiapp.com"
       }
     ]
   }
